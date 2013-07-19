@@ -16,6 +16,8 @@
 		887028481799BF2A00D99213 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 887028471799BF2A00D99213 /* Default.png */; };
 		8870284A1799BF2A00D99213 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 887028491799BF2A00D99213 /* Default@2x.png */; };
 		8870284C1799BF2A00D99213 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8870284B1799BF2A00D99213 /* Default-568h@2x.png */; };
+		887028541799C98A00D99213 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 887028531799C98A00D99213 /* MainVC.m */; };
+		887028561799CDBC00D99213 /* aerial_One.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 887028551799CDBC00D99213 /* aerial_One.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		887028471799BF2A00D99213 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		887028491799BF2A00D99213 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8870284B1799BF2A00D99213 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		887028521799C98A00D99213 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		887028531799C98A00D99213 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		887028551799CDBC00D99213 /* aerial_One.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aerial_One.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				887028441799BF2A00D99213 /* AppDelegate.h */,
+				887028571799CDCE00D99213 /* images */,
 				887028451799BF2A00D99213 /* AppDelegate.m */,
 				8870283C1799BF2A00D99213 /* Supporting Files */,
+				887028521799C98A00D99213 /* MainVC.h */,
+				887028531799C98A00D99213 /* MainVC.m */,
 			);
 			path = ScrollMeNotEmpty;
 			sourceTree = "<group>";
@@ -97,6 +105,14 @@
 				8870284B1799BF2A00D99213 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		887028571799CDCE00D99213 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				887028551799CDBC00D99213 /* aerial_One.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +170,7 @@
 				887028481799BF2A00D99213 /* Default.png in Resources */,
 				8870284A1799BF2A00D99213 /* Default@2x.png in Resources */,
 				8870284C1799BF2A00D99213 /* Default-568h@2x.png in Resources */,
+				887028561799CDBC00D99213 /* aerial_One.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +183,7 @@
 			files = (
 				887028421799BF2A00D99213 /* main.m in Sources */,
 				887028461799BF2A00D99213 /* AppDelegate.m in Sources */,
+				887028541799C98A00D99213 /* MainVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
