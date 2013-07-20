@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MainVC : UIViewController
-
+@property (strong,nonatomic) UITapGestureRecognizer *tap;
+@property (strong,nonatomic)  UIView *scrollViewContainer;
 @end
