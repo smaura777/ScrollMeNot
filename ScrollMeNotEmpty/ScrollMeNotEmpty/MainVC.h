@@ -11,4 +11,6 @@
 @interface MainVC : UIViewController
 @property (strong,nonatomic) UITapGestureRecognizer *tap;
 @property (strong,nonatomic)  UIView *scrollViewContainer;
+@property (strong,nonatomic) UIScrollView *scroller;
+
 @end

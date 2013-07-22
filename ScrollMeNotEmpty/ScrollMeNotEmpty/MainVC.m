@@ -66,11 +66,28 @@
     self.tap.numberOfTapsRequired = 1;
     
     [_scrollViewContainer addGestureRecognizer:self.tap];
-    //[scrollViewContainer setUserInteractionEnabled:YES];
-    
     [self.view addSubview:self.scrollViewContainer];
-    
     [self.view setUserInteractionEnabled:YES];
+    
+    // scrollview
+    self.scroller = [[UIScrollView alloc] initWithFrame:appFrame];
+    [self.scroller setContentSize:CGSizeMake(320.0, 1440.0)];
+    
+    UIImageView *bgView2 = [[UIImageView alloc] initWithImage:bgImage];
+    [bgView2 setFrame:CGRectMake(10.0, 0.0, 300, 480.0)];
+    
+    UIImageView *bgView3 = [[UIImageView alloc] initWithImage:bgImage];
+    [bgView3 setFrame:CGRectMake(10.0, 480.0, 300, 480.0)];
+    
+    UIImageView *bgView4 = [[UIImageView alloc] initWithImage:bgImage];
+    [bgView4 setFrame:CGRectMake(10.0, 960.0, 300, 480.0)];
+    
+    [self.scroller addSubview:bgView2];
+     [self.scroller addSubview:bgView3];
+     [self.scroller addSubview:bgView4];
+    
+    [_scrollViewContainer addSubview:self.scroller];
+    
     
     //NSLog(@"USER INTERACTION ENABLED == %d ", self.view.userInteractionEnabled);
     
