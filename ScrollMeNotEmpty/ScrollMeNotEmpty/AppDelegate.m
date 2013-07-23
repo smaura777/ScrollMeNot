@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MainVC.h"
+#import "CustomContainer.h"
+#import "AntChildVC.h"
+#import "BeeChildVC.h"
 
 @implementation AppDelegate
 
@@ -16,10 +19,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    _mainVC = [[MainVC alloc] init];
+    //  _mainVC = [[MainVC alloc] init];
+    _cc  = [[CustomContainer alloc] init];
+    
+    // BeeChildVC *avc = [[BeeChildVC alloc] init];
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = _mainVC;
+    self.window.rootViewController = _cc;
+    
+    
     
     [self.window makeKeyAndVisible];
     return YES;

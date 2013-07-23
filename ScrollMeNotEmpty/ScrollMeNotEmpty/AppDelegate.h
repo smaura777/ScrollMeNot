@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 @class MainVC;
+@class CustomContainer;
+
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong,nonatomic) MainVC *mainVC;
+@property (strong,nonatomic) CustomContainer *cc;
+
 
 
 @end

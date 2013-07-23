@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885C3403179E0DA400AABC26 /* CustomContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 885C3402179E0DA400AABC26 /* CustomContainer.m */; };
+		885C3406179E0F8500AABC26 /* AntChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885C3405179E0F8500AABC26 /* AntChildVC.m */; };
+		885C3409179E0FA800AABC26 /* BeeChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885C3408179E0FA800AABC26 /* BeeChildVC.m */; };
+		885C340C179E117300AABC26 /* Bee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 885C340A179E117300AABC26 /* Bee.jpg */; };
+		885C340D179E117300AABC26 /* Ant.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 885C340B179E117300AABC26 /* Ant.jpg */; };
 		887028361799BF2A00D99213 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887028351799BF2A00D99213 /* UIKit.framework */; };
 		887028381799BF2A00D99213 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887028371799BF2A00D99213 /* Foundation.framework */; };
 		8870283A1799BF2A00D99213 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887028391799BF2A00D99213 /* CoreGraphics.framework */; };
@@ -21,6 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		885C3401179E0DA400AABC26 /* CustomContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomContainer.h; sourceTree = "<group>"; };
+		885C3402179E0DA400AABC26 /* CustomContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomContainer.m; sourceTree = "<group>"; };
+		885C3404179E0F8500AABC26 /* AntChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntChildVC.h; sourceTree = "<group>"; };
+		885C3405179E0F8500AABC26 /* AntChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntChildVC.m; sourceTree = "<group>"; };
+		885C3407179E0FA800AABC26 /* BeeChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeChildVC.h; sourceTree = "<group>"; };
+		885C3408179E0FA800AABC26 /* BeeChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeChildVC.m; sourceTree = "<group>"; };
+		885C340A179E117300AABC26 /* Bee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bee.jpg; sourceTree = "<group>"; };
+		885C340B179E117300AABC26 /* Ant.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ant.jpg; sourceTree = "<group>"; };
 		887028321799BF2A00D99213 /* ScrollMeNotEmpty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollMeNotEmpty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		887028351799BF2A00D99213 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		887028371799BF2A00D99213 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,6 +66,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		885C3400179E0D4000AABC26 /* VCS */ = {
+			isa = PBXGroup;
+			children = (
+				887028521799C98A00D99213 /* MainVC.h */,
+				887028531799C98A00D99213 /* MainVC.m */,
+				885C3401179E0DA400AABC26 /* CustomContainer.h */,
+				885C3402179E0DA400AABC26 /* CustomContainer.m */,
+				885C3404179E0F8500AABC26 /* AntChildVC.h */,
+				885C3405179E0F8500AABC26 /* AntChildVC.m */,
+				885C3407179E0FA800AABC26 /* BeeChildVC.h */,
+				885C3408179E0FA800AABC26 /* BeeChildVC.m */,
+			);
+			name = VCS;
+			sourceTree = "<group>";
+		};
 		887028291799BF2A00D99213 = {
 			isa = PBXGroup;
 			children = (
@@ -83,12 +111,11 @@
 		8870283B1799BF2A00D99213 /* ScrollMeNotEmpty */ = {
 			isa = PBXGroup;
 			children = (
-				887028441799BF2A00D99213 /* AppDelegate.h */,
 				887028571799CDCE00D99213 /* images */,
+				887028441799BF2A00D99213 /* AppDelegate.h */,
 				887028451799BF2A00D99213 /* AppDelegate.m */,
 				8870283C1799BF2A00D99213 /* Supporting Files */,
-				887028521799C98A00D99213 /* MainVC.h */,
-				887028531799C98A00D99213 /* MainVC.m */,
+				885C3400179E0D4000AABC26 /* VCS */,
 			);
 			path = ScrollMeNotEmpty;
 			sourceTree = "<group>";
@@ -110,6 +137,8 @@
 		887028571799CDCE00D99213 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				885C340A179E117300AABC26 /* Bee.jpg */,
+				885C340B179E117300AABC26 /* Ant.jpg */,
 				887028551799CDBC00D99213 /* aerial_One.jpg */,
 			);
 			name = images;
@@ -171,6 +200,8 @@
 				8870284A1799BF2A00D99213 /* Default@2x.png in Resources */,
 				8870284C1799BF2A00D99213 /* Default-568h@2x.png in Resources */,
 				887028561799CDBC00D99213 /* aerial_One.jpg in Resources */,
+				885C340C179E117300AABC26 /* Bee.jpg in Resources */,
+				885C340D179E117300AABC26 /* Ant.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +215,9 @@
 				887028421799BF2A00D99213 /* main.m in Sources */,
 				887028461799BF2A00D99213 /* AppDelegate.m in Sources */,
 				887028541799C98A00D99213 /* MainVC.m in Sources */,
+				885C3403179E0DA400AABC26 /* CustomContainer.m in Sources */,
+				885C3406179E0F8500AABC26 /* AntChildVC.m in Sources */,
+				885C3409179E0FA800AABC26 /* BeeChildVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +332,7 @@
 				887028511799BF2A00D99213 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
