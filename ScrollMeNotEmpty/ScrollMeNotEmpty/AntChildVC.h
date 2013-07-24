@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomContainer.h"
+
 
 @interface AntChildVC : UIViewController
+@property (assign) CGRect parentFrame;
+@property (weak,nonatomic) CustomContainer *parentLink;
+
+
+-(void)showParentVC;
+
 
 @end
+
+

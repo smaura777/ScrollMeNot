@@ -14,6 +14,11 @@
 @interface CustomContainer : UIViewController
 @property (strong,nonatomic) AntChildVC *acvc;
 @property (strong,nonatomic) BeeChildVC *bcvc;
-@property (strong , nonatomic) UIView *curremtClientView;
+@property (strong,nonatomic) UINavigationController *antNav;
+
+@property (strong , nonatomic) UIView *currentClientView;
+
+-(void)showMainVC;
+
 
 @end

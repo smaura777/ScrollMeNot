@@ -37,13 +37,20 @@
 	// Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor redColor]];
     _acvc = [[AntChildVC alloc] init];
-    self.curremtClientView =   _acvc.view;
+    _acvc.parentFrame = self.view.bounds;
+    _acvc.parentLink = self;
     
-    [self displayAntController:_acvc];
     
+  self.antNav = [[UINavigationController alloc] initWithRootViewController:_acvc];
     
-    //_bcvc = [[BeeChildVC alloc]  init];
+   
     
+    NSLog(@"VIEW BOUNDS : X : %f Y: %f  width: %f height %f ", self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
+    NSLog(@"VIEW FRAME : X : %f Y: %f  width: %f height %f ", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [self displayAntController:self.antNav];
+    
+    self.currentClientView =   _acvc.view;
 }
 
 
@@ -57,14 +64,32 @@
 
 
 -(void)displayAntController:(UIViewController *)content {
-    [self addChildViewController:content];
-    content.view.frame = self.view.frame;
-    [self.view addSubview: self.curremtClientView];
+    //[content.view setFrame:self.view.bounds];
     
+    
+    
+    NSLog(@"VIEW BOUNDS : X : %f Y: %f  width: %f height %f ", content.view.bounds.origin.x, content.view.bounds.origin.y, content.view.bounds.size.width, content.view.bounds.size.height);
+    NSLog(@"VIEW FRAME : X : %f Y: %f  width: %f height %f ", content.view.frame.origin.x, content.view.frame.origin.y, content.view.frame.size.width, content.view.frame.size.height);
+
+    [self addChildViewController:content];
+    
+   [self.view addSubview: content.view ];
     [content didMoveToParentViewController:self];
+    
+   
 }
 
 -(void)displayBeeController {
+
+}
+
+-(void)showMainVC {
+    NSLog(@"PARENT VC ");
+    CGRect newFrame = CGRectMake(300, self.antNav.view.frame.origin.y, self.antNav.view.frame.size.width, self.antNav.view.frame.size.height);
+    
+    
+    
+    [self.antNav.view setFrame:newFrame];
 
 }
 
