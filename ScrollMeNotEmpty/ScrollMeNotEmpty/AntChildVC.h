@@ -11,6 +11,7 @@
 
 
 @interface AntChildVC : UIViewController
+
 @property (assign) CGRect parentFrame;
 @property (weak,nonatomic) CustomContainer *parentLink;
 

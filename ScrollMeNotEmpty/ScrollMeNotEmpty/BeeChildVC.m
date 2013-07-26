@@ -29,13 +29,26 @@
 	// Do any additional setup after loading the view.
     
     
+   	
+    [self.view setFrame:self.navigationController.view.bounds];
+    
+    // Do any additional setup after loading the view.
     UIImage *bgImage = [UIImage imageNamed:@"Bee.jpg"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
-    bgView.frame = appFrame;
+    
+    [bgView setFrame:self.view.frame];
+    
     
     [self.view addSubview:bgView];
+    
+    // [self.view setBackgroundColor:[UIColor greenColor]];
+    
+    UIBarButtonItem *ham = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(showParentVC)];
+    
+    self.navigationItem.leftBarButtonItem = ham;
+    
+
 
     
 }
@@ -44,6 +57,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void)showParentVC{
+    
+    NSLog(@"hey .. %@ ",  [self.parentViewController parentViewController ] ) ;
+    [_parentLink  showMenuFrom:self.navigationController];
+    
+    
+    
+    // [self.parentViewController];
 }
 
 @end

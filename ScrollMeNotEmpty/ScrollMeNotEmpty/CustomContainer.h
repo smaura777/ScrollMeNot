@@ -11,14 +11,16 @@
 @class  AntChildVC;
 @class BeeChildVC;
 
-@interface CustomContainer : UIViewController
+@interface CustomContainer : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong,nonatomic) NSArray *menuList;
 @property (strong,nonatomic) AntChildVC *acvc;
 @property (strong,nonatomic) BeeChildVC *bcvc;
 @property (strong,nonatomic) UINavigationController *antNav;
+@property (strong,nonatomic) UIViewController *topVC;
 
 @property (strong , nonatomic) UIView *currentClientView;
 
--(void)showMainVC;
+-(void)showMenuFrom:(UIViewController *)childVC;
 
 
 @end

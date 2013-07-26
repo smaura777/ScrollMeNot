@@ -48,7 +48,7 @@
     
     // [self.view setBackgroundColor:[UIColor greenColor]];
     
-    UIBarButtonItem *ham = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(showParentVC)];
+    UIBarButtonItem *ham = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(showParentVC)];
     
     self.navigationItem.leftBarButtonItem = ham;
     
@@ -65,7 +65,7 @@
 -(void)showParentVC{
     
     NSLog(@"hey .. %@ ",  [self.parentViewController parentViewController ] ) ;
-    [_parentLink  showMainVC];
+    [_parentLink  showMenuFrom:self.navigationController];
     
     
   
