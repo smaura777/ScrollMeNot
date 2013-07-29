@@ -11,8 +11,8 @@
 #import "AntChildVC.h"
 #import "BeeChildVC.h"
 
-#define CORNER_RADIUS 30.0
-#define SHADOW_OFFSET -4
+#define CORNER_RADIUS 10.0
+#define SHADOW_OFFSET -10
 #define SHADOW_OPACITY 0.8
 
 
@@ -178,11 +178,13 @@
     
     CGRect newFrame;
     newFrame = CGRectMake(260.0, vc.view.frame.origin.y, vc.view.frame.size.width, vc.view.frame.size.height);
+  
+    [vc.view.layer setBorderWidth:1.0];
     [vc.view.layer setCornerRadius:CORNER_RADIUS];
     [vc.view.layer setShadowColor:[UIColor blackColor].CGColor];
     [vc.view.layer setShadowOpacity:SHADOW_OPACITY];
-    [vc.view.layer setShadowOffset:CGSizeMake(SHADOW_OFFSET, SHADOW_OFFSET)];
-   
+    [vc.view.layer setShadowOffset:CGSizeMake(16.0, 16.0)];
+        // [vc.view.layer setMasksToBounds:YES];
     
     
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
