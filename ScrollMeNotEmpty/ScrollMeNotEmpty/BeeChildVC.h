@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomContainer.h"
+#import "SlidingVC.h"
 
+@interface BeeChildVC : SlidingVC
 
-@interface BeeChildVC : UIViewController
-
+@property (strong,nonatomic)  UIBarButtonItem *ham;
 @property (assign) CGRect parentFrame;
-@property (weak,nonatomic) CustomContainer *parentLink;
-
+    //@property (weak,nonatomic) CustomContainer *parentLink;
 
 -(void)showParentVC;
 

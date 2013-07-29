@@ -8,6 +8,8 @@
 
 #import "AntChildVC.h"
 
+
+
 @interface AntChildVC ()
 
 @end
@@ -39,20 +41,15 @@
     // Do any additional setup after loading the view.
     UIImage *bgImage = [UIImage imageNamed:@"Ant.jpg"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-    
-    
-     [bgView setFrame:self.view.frame];
-    
-    
+    [bgView setFrame:self.view.frame];
     [self.view addSubview:bgView];
-    
     // [self.view setBackgroundColor:[UIColor greenColor]];
-    
-    UIBarButtonItem *ham = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(showParentVC)];
-    
-    self.navigationItem.leftBarButtonItem = ham;
-    
-    
+    _ham = [[UIBarButtonItem alloc]
+            initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
+            target:self
+            action:@selector(showParentVC)];
+    _ham.tag = VC_FULL_SCREEN;
+    self.navigationItem.leftBarButtonItem = _ham;
     
 }
 
@@ -65,8 +62,16 @@
 -(void)showParentVC{
     
     NSLog(@"hey .. %@ ",  [self.parentViewController parentViewController ] ) ;
-    [_parentLink  showMenuFrom:self.navigationController];
     
+    
+    if (_ham.tag == VC_FULL_SCREEN){
+        [self.delegate  showAppMenuFor:self.navigationController];
+        _ham.tag = VC_PARTIAL_SCREEN;
+    }
+    else {
+        [self.delegate hideAppMenuFor:self.navigationController];
+        _ham.tag = VC_FULL_SCREEN;
+    }
     
   
     // [self.parentViewController];

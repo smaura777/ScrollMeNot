@@ -7,20 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidingVC.h"
 
-@class  AntChildVC;
+    //#import "AntChildVC.h"
+    //#import "BeeChildVC.h"
+@class AntChildVC;
 @class BeeChildVC;
 
-@interface CustomContainer : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+@interface CustomContainer : UIViewController <UITableViewDelegate,
+UITableViewDataSource, SlidingVCDelegate>
 @property (strong,nonatomic) NSArray *menuList;
 @property (strong,nonatomic) AntChildVC *acvc;
 @property (strong,nonatomic) BeeChildVC *bcvc;
+
 @property (strong,nonatomic) UINavigationController *antNav;
 @property (strong,nonatomic) UIViewController *topVC;
 
 @property (strong , nonatomic) UIView *currentClientView;
 
--(void)showMenuFrom:(UIViewController *)childVC;
+    //-(void)showMenuFrom:(UIViewController *)childVC;
 
 
 @end

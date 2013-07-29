@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Maura, Sam. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "CustomContainer.h"
 #import "AntChildVC.h"
 #import "BeeChildVC.h"
+
+#define CORNER_RADIUS 30.0
+#define SHADOW_OFFSET -4
+#define SHADOW_OPACITY 0.8
 
 
 
@@ -50,11 +55,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    // [self.view setBackgroundColor:[UIColor redColor]];
-    _acvc = [[AntChildVC alloc] init];
-    _bcvc = [[BeeChildVC alloc] init];
+	
+        //self.acvc =[[AntChildVC alloc] init];
     
+    
+       _acvc = [[AntChildVC alloc] init];
+       _bcvc = [[BeeChildVC alloc] init];
+   
     _menuList = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObject:_acvc forKey:@"Ants"], [NSDictionary dictionaryWithObject:_bcvc forKey:@"Bee"],nil];
 
     UITableView *mv = (UITableView *) self.view;
@@ -63,8 +70,10 @@
     
     
     _acvc.parentFrame = self.view.bounds;
-    _acvc.parentLink = self;
-    _bcvc.parentLink = self;
+    
+    _acvc.delegate = self;
+    _bcvc.delegate = self;
+    
     
     
   self.antNav = [[UINavigationController alloc] initWithRootViewController:_acvc];
@@ -105,30 +114,6 @@
 }
 
 -(void)displayBeeController {
-
-}
-
--(void)showMenuFrom:(UIViewController *)childVC {
-    NSLog(@"VIEW BOUNDS : X : %f Y: %f  width: %f height %f ", self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
-    NSLog(@"VIEW FRAME : X : %f Y: %f  width: %f height %f ", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-    NSLog(@"PARENT VC ");
-    
-    
-    CGRect newFrame;
-    
-    if (childVC.view.frame.origin.x == 0.0){
-      newFrame = CGRectMake(260.0, childVC.view.frame.origin.y, childVC.view.frame.size.width, childVC.view.frame.size.height);
-    }
-    else {
-        newFrame = self.view.bounds; //CGRectMake(300, childVC.view.frame.origin.y, childVC.view.frame.size.width, childVC.view.frame.size.height);
-    }
-    
-    
-    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        [childVC.view setFrame:newFrame];
-    } completion:nil];
-    
-    
 
 }
 
@@ -173,12 +158,55 @@
         
         [self.antNav setViewControllers:[NSArray arrayWithObject:_topVC] ];
         [self displayAntController:self.antNav];
-        [self showMenuFrom:self.antNav];
+        [self showAppMenuFor:self.antNav];
         
     }
     
 }
 
 
+
+#pragma mark - SlidingVCDelegate
+
+-(void)showAppMenuFor:(UIViewController *)vc {
+   /**
+    NSLog(@"VIEW BOUNDS : X : %f Y: %f  width: %f height %f ", self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
+    NSLog(@"VIEW FRAME : X : %f Y: %f  width: %f height %f ", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    NSLog(@"PARENT VC ");
+    **/
+    
+    
+    CGRect newFrame;
+    newFrame = CGRectMake(260.0, vc.view.frame.origin.y, vc.view.frame.size.width, vc.view.frame.size.height);
+    [vc.view.layer setCornerRadius:CORNER_RADIUS];
+    [vc.view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [vc.view.layer setShadowOpacity:SHADOW_OPACITY];
+    [vc.view.layer setShadowOffset:CGSizeMake(SHADOW_OFFSET, SHADOW_OFFSET)];
+   
+    
+    
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [vc.view setFrame:newFrame];
+        
+    } completion:nil];
+    
+}
+
+
+-(void)hideAppMenuFor:(UIViewController *)vc {
+    CGRect newFrame;
+     newFrame = CGRectMake(0.0, vc.view.frame.origin.y, vc.view.frame.size.width, vc.view.frame.size.height);
+    
+    [vc.view.layer setCornerRadius:0];
+    [vc.view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [vc.view.layer setShadowOffset:CGSizeMake(0, 0)];
+
+    
+    
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [vc.view setFrame:newFrame];
+    } completion:nil];
+
+}
 
 @end
