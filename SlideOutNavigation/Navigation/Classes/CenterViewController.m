@@ -66,6 +66,21 @@
 
 - (IBAction)btnMovePanelRight:(id)sender
 {
+    UIButton *button = sender;
+    switch (button.tag) {
+        case 0: {
+            [_delegate movePanelToOriginalPosition];
+            break;
+        }
+            
+        case 1: {
+            [_delegate movePanelRight];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 - (IBAction)btnMovePanelLeft:(id)sender
