@@ -11,6 +11,7 @@
 #import "CustomContainer.h"
 #import "AntChildVC.h"
 #import "BeeChildVC.h"
+#import "MasterContainer.h"
 
 @implementation AppDelegate
 
@@ -20,13 +21,14 @@
     // Override point for customization after application launch.
     
     //  _mainVC = [[MainVC alloc] init];
-    _cc  = [[CustomContainer alloc] init];
+    //   _cc  = [[CustomContainer alloc] init];
+    MasterContainer *mc = [[MasterContainer alloc] init];
     
     // BeeChildVC *avc = [[BeeChildVC alloc] init];
     
     
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = _cc;
+    self.window.rootViewController = mc;
     
     
     

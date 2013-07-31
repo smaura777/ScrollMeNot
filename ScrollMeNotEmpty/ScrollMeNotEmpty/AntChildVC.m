@@ -36,20 +36,24 @@
 {
     [super viewDidLoad];
 	
-    [self.view setFrame:self.parentFrame];
+    //  [self.view setFrame:self.parentFrame];
     
     // Do any additional setup after loading the view.
+    
     UIImage *bgImage = [UIImage imageNamed:@"Ant.jpg"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-    [bgView setFrame:self.view.frame];
+    //[bgView setFrame:self.view.bounds];
     [self.view addSubview:bgView];
-    // [self.view setBackgroundColor:[UIColor greenColor]];
+   
+    [self.view setBackgroundColor:[UIColor greenColor]];
+    
     _ham = [[UIBarButtonItem alloc]
             initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
             target:self
             action:@selector(showParentVC)];
     _ham.tag = VC_FULL_SCREEN;
     self.navigationItem.leftBarButtonItem = _ham;
+    
     
 }
 
@@ -62,6 +66,7 @@
 -(void)showParentVC{
     
     NSLog(@"hey .. %@ ",  [self.parentViewController parentViewController ] ) ;
+   
     
     
     if (_ham.tag == VC_FULL_SCREEN){
@@ -73,7 +78,7 @@
         _ham.tag = VC_FULL_SCREEN;
     }
     
-  
+    
     // [self.parentViewController];
 }
 

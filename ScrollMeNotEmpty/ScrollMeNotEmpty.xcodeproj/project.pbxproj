@@ -25,6 +25,7 @@
 		887028561799CDBC00D99213 /* aerial_One.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 887028551799CDBC00D99213 /* aerial_One.jpg */; };
 		88773F4D17A6E36900E0D8C5 /* SlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88773F4C17A6E36900E0D8C5 /* SlidingVC.m */; };
 		88773F4F17A6FEC700E0D8C5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88773F4E17A6FEC700E0D8C5 /* QuartzCore.framework */; };
+		887B74A317A89B8F00DC58B0 /* MasterContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 887B74A217A89B8F00DC58B0 /* MasterContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		88773F4B17A6E36900E0D8C5 /* SlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingVC.h; sourceTree = "<group>"; };
 		88773F4C17A6E36900E0D8C5 /* SlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingVC.m; sourceTree = "<group>"; };
 		88773F4E17A6FEC700E0D8C5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		887B74A117A89B8F00DC58B0 /* MasterContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterContainer.h; sourceTree = "<group>"; };
+		887B74A217A89B8F00DC58B0 /* MasterContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				885C3408179E0FA800AABC26 /* BeeChildVC.m */,
 				88773F4B17A6E36900E0D8C5 /* SlidingVC.h */,
 				88773F4C17A6E36900E0D8C5 /* SlidingVC.m */,
+				887B74A117A89B8F00DC58B0 /* MasterContainer.h */,
+				887B74A217A89B8F00DC58B0 /* MasterContainer.m */,
 			);
 			name = VCS;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				885C3406179E0F8500AABC26 /* AntChildVC.m in Sources */,
 				885C3409179E0FA800AABC26 /* BeeChildVC.m in Sources */,
 				88773F4D17A6E36900E0D8C5 /* SlidingVC.m in Sources */,
+				887B74A317A89B8F00DC58B0 /* MasterContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
