@@ -9,9 +9,7 @@
 #import "MasterContainer.h"
 #import "AntChildVC.h"
 #import "BeeChildVC.h"
-
-
-
+#import "MenuViewController.h"
 
 
 @interface MasterContainer () <SlidingVCDelegate>
@@ -20,8 +18,10 @@
 @property (nonatomic,assign) BOOL antVCLoaded;
 @property (nonatomic,assign) BOOL beeVCLoaded;
 
+@property (nonatomic,strong) UINavigationController *antVCNav;
 @property (nonatomic,strong) AntChildVC *antVC;
 @property (nonatomic,strong) BeeChildVC *beeVC;
+@property (nonatomic,strong) MenuViewController *mvc;
 
 @end
 
@@ -67,10 +67,60 @@
         //self.antVC.view.frame = self.view.bounds;
         [self addChildViewController:tmp];
         [tmp didMoveToParentViewController:self];
+        
+        self.antVCNav = tmp;
     }
     
 }
 
+
+
+
+#pragma mark -
+
+#pragma mark setupAndLoadMenuView
+
+-(void)setupAndLoadMenuView {
+    if (!_mvc){
+        self.mvc = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
+    }
+    [self.mvc.view setFrame:self.view.bounds];
+    
+        //[self.view addSubview:self.mvc.view];
+        [self.view insertSubview:self.mvc.view belowSubview:self.antVCNav.view];
+    
+    [self addChildViewController:_mvc];
+    [_mvc didMoveToParentViewController:self];
+
+        //[self.view sendSubviewToBack:self.mvc.view];
+    /**
+          [self.antVCNav.view setFrame:CGRectMake(200,
+              self.antVCNav.view.frame.origin.y,
+              self.antVCNav.view.frame.size.width,
+              self.antVCNav.view.frame.size.height)];
+    **/
+
+    [self subviewDebug:self.antVCNav.view withParent:nil];
+    
+    NSLog(@"\n\n ========================================================\n\n");
+    
+    [self subviewDebug:self.mvc.view withParent:nil];
+    
+}
+
+-(void)subviewDebug:(UIView *)sub withParent:(UIView *)parentView {
+    
+    if (parentView)
+       NSLog(@"\nParent view: %@ \nSubview: %@ \n\n",[parentView description],  [sub description]);
+    else
+       NSLog(@"\nSubview: %@ \n\n",[sub description]);
+    
+    NSLog(@"Subview Count : %d", [sub.subviews count]);
+    
+    for (UIView *inner in sub.subviews){
+        [self subviewDebug:inner withParent:sub];
+    }
+}
 
 
 #pragma mark -
@@ -122,6 +172,7 @@
 
 -(void)showAppMenuFor:(UIViewController *)vc {
     NSLog(@"Will show nenu");
+    [self setupAndLoadMenuView];
 }
 
 -(void)hideAppMenuFor:(UIViewController *)vc {
