@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MenuDelegateProtocol;
+
+
 @interface MenuViewController : UITableViewController
+
+@property (nonatomic,weak) id<MenuDelegateProtocol> delegate;
+
+@end
+
+
+@protocol MenuDelegateProtocol <NSObject>
+@required
+-(void)forwardDidSelectRowAtIndexPath:(NSIndexPath *)index;
 
 @end

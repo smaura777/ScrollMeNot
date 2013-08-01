@@ -12,13 +12,17 @@
 #import "MenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface MasterContainer () <SlidingVCDelegate>
+@interface MasterContainer () <SlidingVCDelegate, UITableViewDataSource, MenuDelegateProtocol>
 
 @property (nonatomic,assign) BOOL showingMenu;
 @property (nonatomic,assign) BOOL antVCLoaded;
 @property (nonatomic,assign) BOOL beeVCLoaded;
 
-@property (nonatomic,strong) UINavigationController *antVCNav;
+    //@property (nonatomic,strong) UINavigationController *antVCNav;
+@property (nonatomic,strong) UIViewController *selectedViewController;
+@property (nonatomic,strong) NSMutableArray *viewControllersList;
+
+
 @property (nonatomic,strong) AntChildVC *antVC;
 @property (nonatomic,strong) BeeChildVC *beeVC;
 @property (nonatomic,strong) MenuViewController *mvc;
@@ -47,7 +51,7 @@
 	// Do any additional setup after loading the view.
     NSLog(@"Master container loaded");
     NSLog(@"Building main view");
-    [self setupAndLoadDefaultContentView];
+  
     
     // Set up view frames
     self.defaultMenuFrame = self.view.bounds;
@@ -55,6 +59,28 @@
                                         self.view.bounds.origin.y,
                                         self.view.frame.size.width,
                                         self.view.frame.size.height);
+    
+        //self.antVC = [[AntChildVC alloc] init];
+    
+    
+    
+    NSDictionary *tmpVCDetailsList = [NSDictionary
+                    dictionaryWithObjects:[NSArray
+                    arrayWithObjects:@"Ant",@"basic", [[UINavigationController alloc] initWithRootViewController:[[AntChildVC alloc] init]], nil]
+                    forKeys:[NSArray arrayWithObjects:@"title",@"type",@"vc", nil]];
+
+
+    NSDictionary *tmpVCDetailsList2 = [NSDictionary
+                            dictionaryWithObjects:[NSArray arrayWithObjects:@"Bee",@"basic",
+                            [[UINavigationController alloc] initWithRootViewController:[[BeeChildVC alloc] init]], nil]
+                            forKeys:[NSArray arrayWithObjects:@"title",@"type",@"vc", nil]];
+
+    
+    self.viewControllersList = [[NSMutableArray alloc] init];
+    [self.viewControllersList addObject:tmpVCDetailsList];
+    [self.viewControllersList addObject:tmpVCDetailsList2];
+    
+    [self setupAndLoadDefaultContentView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,9 +91,20 @@
 
 #pragma mark -
 
-#pragma mark setupAndLoadCenterView
+#pragma mark setupAndLoadDefaultContentView
 
 -(void)setupAndLoadDefaultContentView {
+    
+    UINavigationController *tmp = [[_viewControllersList objectAtIndex:0] objectForKey:@"vc"];
+    if (tmp){
+        [self addChildViewController:tmp];
+        [[[tmp viewControllers] objectAtIndex:0] setDelegate:self];
+        [self.view addSubview:tmp.view];
+        [tmp didMoveToParentViewController:self];
+        _selectedViewController = tmp;
+    }
+    
+    /**
     if (!_antVC){
         self.antVC = [[AntChildVC alloc] init];
         self.antVC.delegate = self;
@@ -75,12 +112,11 @@
     
         UINavigationController *tmp = [[UINavigationController alloc] initWithRootViewController:_antVC];
         [self.view addSubview:tmp.view];
-        //self.antVC.view.frame = self.view.bounds;
         [self addChildViewController:tmp];
         [tmp didMoveToParentViewController:self];
-        
-        self.antVCNav = tmp;
+        _selectedViewController = tmp;
     }
+    **/
     
 }
 
@@ -94,11 +130,14 @@
 -(void)setupAndLoadMenuView {
     if (!_mvc){
         self.mvc = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
+        self.mvc.tableView.dataSource = self;
+        self.mvc.delegate = self;
+        
     }
     [self.mvc.view setFrame:self.view.bounds];
     
     //[self.view addSubview:self.mvc.view];
-    [self.view insertSubview:self.mvc.view belowSubview:self.antVCNav.view];
+    [self.view insertSubview:self.mvc.view belowSubview:_selectedViewController.view];
     
     [self addChildViewController:_mvc];
     [_mvc didMoveToParentViewController:self];
@@ -126,11 +165,11 @@
 
 -(void)displayMainMenu {
         
-    [self decorateViewController:_antVCNav];
+    [self decorateViewController:_selectedViewController];
     
-    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:0.1 delay:0.1 options:UIViewAnimationOptionCurveEaseOut animations:^{
         //[self.antVCNav.view setFrame:CGRectMake(200, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
-         [self.antVCNav.view setFrame:self.defaultSlideFrame];
+         [_selectedViewController.view setFrame:self.defaultSlideFrame];
         
     } completion:nil];
 }
@@ -170,10 +209,10 @@
 #pragma mark hideMainMenu
 
 -(void)hideMainMenu {
-    [self unDecorateViewController:_antVCNav];
+    [self unDecorateViewController:_selectedViewController];
    
-    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        [self.antVCNav.view setFrame:self.defaultMenuFrame];
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [_selectedViewController.view setFrame:self.defaultMenuFrame];
         
     } completion:nil];
     
@@ -246,7 +285,7 @@
     NSLog(@"Will show nenu");
     [self setupAndLoadMenuView];
     
-    NSLog(@"NAV frame : %@", NSStringFromCGRect(_antVCNav.view.frame));
+    NSLog(@"NAV frame : %@", NSStringFromCGRect(_selectedViewController.view.frame));
     NSLog(@" MENU frame : %@", NSStringFromCGRect(_mvc.view.frame));
     NSLog(@" Master container view frame : %@", NSStringFromCGRect(self.view.frame));
     NSLog(@" Master container view bounds : %@", NSStringFromCGRect(self.view.bounds));
@@ -262,6 +301,44 @@
      self.showingMenu = NO;
 }
 
+#pragma mark
+#pragma mark TableView DataSource Methods
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_viewControllersList count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        //static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = nil; // [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MenuCell"];
+    }
+    cell.textLabel.text = [[_viewControllersList objectAtIndex:indexPath.row] objectForKey:@"title"];
+    
+    
+        //[[_viewControllersList objectAtIndex:0] objectForKey:@"vc"];
+        // Configure the cell...
+    
+    return cell;
+}
+
+
+#pragma mark
+#pragma mark MenuDelegateProtocol
+
+-(void)forwardDidSelectRowAtIndexPath:(NSIndexPath *)index {
+    NSLog(@"Hello... %d", index.row);
+}
 
 @end
