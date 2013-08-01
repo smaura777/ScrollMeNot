@@ -10,7 +10,7 @@
 #import "AntChildVC.h"
 #import "BeeChildVC.h"
 #import "MenuViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @interface MasterContainer () <SlidingVCDelegate>
 
@@ -22,6 +22,10 @@
 @property (nonatomic,strong) AntChildVC *antVC;
 @property (nonatomic,strong) BeeChildVC *beeVC;
 @property (nonatomic,strong) MenuViewController *mvc;
+
+@property (nonatomic,assign) CGRect defaultMenuFrame;
+@property (nonatomic,assign) CGRect defaultSlideFrame;
+
 
 @end
 
@@ -44,6 +48,13 @@
     NSLog(@"Master container loaded");
     NSLog(@"Building main view");
     [self setupAndLoadDefaultContentView];
+    
+    // Set up view frames
+    self.defaultMenuFrame = self.view.bounds;
+    self.defaultSlideFrame = CGRectMake(250,
+                                        self.view.bounds.origin.y,
+                                        self.view.frame.size.width,
+                                        self.view.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,27 +97,88 @@
     }
     [self.mvc.view setFrame:self.view.bounds];
     
-        //[self.view addSubview:self.mvc.view];
-        [self.view insertSubview:self.mvc.view belowSubview:self.antVCNav.view];
+    //[self.view addSubview:self.mvc.view];
+    [self.view insertSubview:self.mvc.view belowSubview:self.antVCNav.view];
     
     [self addChildViewController:_mvc];
     [_mvc didMoveToParentViewController:self];
 
-        //[self.view sendSubviewToBack:self.mvc.view];
-    /**
-          [self.antVCNav.view setFrame:CGRectMake(200,
-              self.antVCNav.view.frame.origin.y,
-              self.antVCNav.view.frame.size.width,
-              self.antVCNav.view.frame.size.height)];
-    **/
+    //[self.view sendSubviewToBack:self.mvc.view];
+    
+//          [self.antVCNav.view setFrame:CGRectMake(200,
+//              self.antVCNav.view.frame.origin.y,
+//              self.antVCNav.view.frame.size.width,
+//              self.antVCNav.view.frame.size.height)];
+    
 
-    [self subviewDebug:self.antVCNav.view withParent:nil];
+    // [self subviewDebug:self.antVCNav.view withParent:nil];
     
-    NSLog(@"\n\n ========================================================\n\n");
+    //NSLog(@"\n\n ========================================================\n\n");
     
-    [self subviewDebug:self.mvc.view withParent:nil];
+    //[self subviewDebug:self.mvc.view withParent:nil];
     
 }
+
+
+#pragma mark -
+
+#pragma mark displayMainMenu
+
+-(void)displayMainMenu {
+        
+    [self decorateViewController:_antVCNav];
+    
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        //[self.antVCNav.view setFrame:CGRectMake(200, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+         [self.antVCNav.view setFrame:self.defaultSlideFrame];
+        
+    } completion:nil];
+}
+
+#pragma mark -
+
+#pragma mark decorateViewController
+
+-(void)decorateViewController:(UIViewController *)vc {
+     
+    
+    //[vc.view.layer setMasksToBounds:YES];
+    // [vc.view.layer setCornerRadius:24];
+    [vc.view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [vc.view.layer setShadowOpacity:0.8];
+    [vc.view.layer setShadowOffset:CGSizeMake(-2, -2)];
+}
+
+#pragma mark -
+
+#pragma mark decorateViewController
+
+-(void)unDecorateViewController:(UIViewController *)vc {
+   
+    [vc.view.layer setShadowColor:[UIColor whiteColor].CGColor];
+    [vc.view.layer setShadowOpacity:1.0];
+    [vc.view.layer setShadowOffset:CGSizeMake(0, 0)];
+    
+}
+
+
+
+
+
+#pragma mark -
+
+#pragma mark hideMainMenu
+
+-(void)hideMainMenu {
+    [self unDecorateViewController:_antVCNav];
+   
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.antVCNav.view setFrame:self.defaultMenuFrame];
+        
+    } completion:nil];
+    
+}
+
 
 -(void)subviewDebug:(UIView *)sub withParent:(UIView *)parentView {
     
@@ -173,10 +245,21 @@
 -(void)showAppMenuFor:(UIViewController *)vc {
     NSLog(@"Will show nenu");
     [self setupAndLoadMenuView];
+    
+    NSLog(@"NAV frame : %@", NSStringFromCGRect(_antVCNav.view.frame));
+    NSLog(@" MENU frame : %@", NSStringFromCGRect(_mvc.view.frame));
+    NSLog(@" Master container view frame : %@", NSStringFromCGRect(self.view.frame));
+    NSLog(@" Master container view bounds : %@", NSStringFromCGRect(self.view.bounds));
+    
+    [self displayMainMenu];
+    self.showingMenu = YES;
+    
 }
 
 -(void)hideAppMenuFor:(UIViewController *)vc {
      NSLog(@"Will hide nenu");
+     [self hideMainMenu];
+     self.showingMenu = NO;
 }
 
 

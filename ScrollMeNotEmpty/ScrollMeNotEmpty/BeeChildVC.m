@@ -37,7 +37,7 @@
     UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
     
     
-    [bgView setFrame:self.view.frame];
+    //[bgView setFrame:self.view.frame];
     
     
     [self.view addSubview:bgView];
