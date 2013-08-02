@@ -54,7 +54,20 @@
     _ham.tag = VC_FULL_SCREEN;
     self.navigationItem.leftBarButtonItem = _ham;
     
+    NSLog(@"View for %@  %s ", NSStringFromClass([self class]),__func__); 
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"View for %@  %s ", NSStringFromClass([self class]),__func__);
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    NSLog(@"View for %@  %s ", NSStringFromClass([self class]),__func__);
+}
+
+- (void)viewDidLayoutSubviews{
+    NSLog(@"View for %@  %s ", NSStringFromClass([self class]),__func__);
 }
 
 - (void)didReceiveMemoryWarning

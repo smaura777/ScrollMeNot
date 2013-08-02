@@ -17,9 +17,11 @@
 @property (nonatomic,assign) BOOL showingMenu;
 @property (nonatomic,assign) BOOL antVCLoaded;
 @property (nonatomic,assign) BOOL beeVCLoaded;
+@property (nonatomic,assign) BOOL isMenuViewReady;
+
 
     //@property (nonatomic,strong) UINavigationController *antVCNav;
-@property (nonatomic,strong) UIViewController *selectedViewController;
+@property (nonatomic,strong) UINavigationController *selectedViewController;
 @property (nonatomic,strong) NSMutableArray *viewControllersList;
 
 
@@ -125,23 +127,23 @@
 
 #pragma mark -
 
-#pragma mark setupAndLoadMenuView
+#pragma mark Menu operations
 
 -(void)setupAndLoadMenuView {
     if (!_mvc){
         self.mvc = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
-        self.mvc.tableView.dataSource = self;
         self.mvc.delegate = self;
-        
     }
-    [self.mvc.view setFrame:self.view.bounds];
     
-    //[self.view addSubview:self.mvc.view];
-    [self.view insertSubview:self.mvc.view belowSubview:_selectedViewController.view];
+    if (!self.isMenuViewReady){
+        [self.mvc.view setFrame:self.view.bounds];
+        [self.view insertSubview:self.mvc.view belowSubview:_selectedViewController.view];
+        [self addChildViewController:_mvc];
+        [_mvc didMoveToParentViewController:self];
+        self.isMenuViewReady = YES;
+        self.mvc.tableView.dataSource = self;
+    }
     
-    [self addChildViewController:_mvc];
-    [_mvc didMoveToParentViewController:self];
-
     //[self.view sendSubviewToBack:self.mvc.view];
     
 //          [self.antVCNav.view setFrame:CGRectMake(200,
@@ -159,6 +161,13 @@
 }
 
 
+-(void)unLoadMenuView {
+    [self.mvc.view removeFromSuperview];
+    self.mvc.view = nil;
+    self.isMenuViewReady = NO;
+}
+
+
 #pragma mark -
 
 #pragma mark displayMainMenu
@@ -171,7 +180,9 @@
         //[self.antVCNav.view setFrame:CGRectMake(200, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
          [_selectedViewController.view setFrame:self.defaultSlideFrame];
         
-    } completion:nil];
+    } completion:^(BOOL finished){
+        self.showingMenu = YES;
+    }];
 }
 
 #pragma mark -
@@ -214,7 +225,11 @@
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_selectedViewController.view setFrame:self.defaultMenuFrame];
         
-    } completion:nil];
+    } completion:^(BOOL finished){
+        self.showingMenu = NO;
+        [self unLoadMenuView];
+        
+    }];
     
 }
 
@@ -238,13 +253,20 @@
 
 #pragma mark loadContentViewController:(UIViewController *)vc 
 
--(void)loadContentViewController:(UIViewController *)vc {
+-(void)loadContentViewController:(UINavigationController *)vc {
     
     if (vc){
-        UINavigationController *tmp = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self.view addSubview:tmp.view];
-        [self addChildViewController:tmp];
-        [tmp didMoveToParentViewController:self];
+        [self addChildViewController:vc];
+        if (self.showingMenu){
+            //[vc.view setFrame:CGRectMake(250, 80, 320, 460)];
+             [vc.view setFrame:_defaultSlideFrame];
+            //NSLog(@"Default slide frame %@ ", NSStringFromCGRect(_defaultSlideFrame));
+        }
+        
+        [self.view addSubview:vc.view];
+        [vc didMoveToParentViewController:self];
+        _selectedViewController = vc;
+        // NSLog(@"Default slide frame %@ ", NSStringFromCGRect(_selectedViewController.view.frame));
     }
 
 }
@@ -255,8 +277,21 @@
 #pragma mark unloadViewController:(UIViewController *)vc
 
 
--(void)unloadViewController:(UIViewController *)vc{
-
+-(void)unloadViewController:(UINavigationController *)vc{
+    NSLog(@"++++++++ START  unloadViewController +++++++++++\n");
+    if (vc){
+        [vc willMoveToParentViewController:nil];
+        [[[vc.viewControllers objectAtIndex:0] view] removeFromSuperview];
+        [[vc.viewControllers objectAtIndex:0] setView:nil];
+        [vc.view removeFromSuperview];
+        vc.view = nil;
+        
+         NSLog(@"vc.view SET TO NIL ");
+        //NSLog(@"vc.child.view removed = %@", [[vc.viewControllers objectAtIndex:0] view] );
+        
+        [vc removeFromParentViewController];
+    }
+      NSLog(@"++++++++ END  unloadViewController +++++++++++\n");
 }
 
 
@@ -269,10 +304,10 @@
     
     //...
     
-    [self unloadViewController:vca];
+    // [self unloadViewController:vca];
     
     //..
-    [self loadContentViewController:vcb];
+    //[self loadContentViewController:vcb];
 }
 
 
@@ -291,14 +326,12 @@
     NSLog(@" Master container view bounds : %@", NSStringFromCGRect(self.view.bounds));
     
     [self displayMainMenu];
-    self.showingMenu = YES;
     
 }
 
 -(void)hideAppMenuFor:(UIViewController *)vc {
      NSLog(@"Will hide nenu");
      [self hideMainMenu];
-     self.showingMenu = NO;
 }
 
 #pragma mark
@@ -339,6 +372,17 @@
 
 -(void)forwardDidSelectRowAtIndexPath:(NSIndexPath *)index {
     NSLog(@"Hello... %d", index.row);
+    UINavigationController *tmp = [[_viewControllersList objectAtIndex:index.row] objectForKey:@"vc"];
+    
+    if (![tmp isEqual:_selectedViewController]){
+        UINavigationController *previous = _selectedViewController; // Save ref
+
+        [[[tmp viewControllers] objectAtIndex:0] setDelegate:self];
+        [self loadContentViewController:tmp];
+        [self hideMainMenu];
+        [self unloadViewController:previous];
+        
+    }
 }
 
 @end
