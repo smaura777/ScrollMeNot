@@ -31,7 +31,7 @@
     NSLog(@"%s VCONE ", __func__);
     CGRect myFrame = CGRectMake(50, 50, 200, 300);
     _viewOne = [[CTLViewOne alloc] initWithFrame:myFrame];
-    _viewOne.backgroundColor = [UIColor yellowColor];
+    _viewOne.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:_viewOne];
     
