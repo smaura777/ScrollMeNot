@@ -29,9 +29,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"%s VCONE ", __func__);
-    CGRect myFrame = CGRectMake(50, 50, 200, 300);
+    CGRect myFrame = CGRectMake(20, 30, 100, 100);
     _viewOne = [[CTLViewOne alloc] initWithFrame:myFrame];
     _viewOne.backgroundColor = [UIColor clearColor];
+    //_viewOne.layer.borderWidth = 2.0;
+    // _viewOne.layer.borderColor = [UIColor orangeColor].CGColor;
+    //_viewOne.layer.cornerRadius = 10.0;
+    
+    
     
     [self.view addSubview:_viewOne];
     

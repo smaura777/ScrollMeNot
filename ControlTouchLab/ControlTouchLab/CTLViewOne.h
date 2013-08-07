@@ -10,4 +10,9 @@
 
 @interface CTLViewOne : UIView
 @property (nonatomic,copy) NSString *viewText;
+@property (nonatomic,assign) CGPoint startLocation;
+
+
+-(void)setupView;
+
 @end

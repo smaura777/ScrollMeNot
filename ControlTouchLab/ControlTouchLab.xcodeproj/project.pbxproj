@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883B854D17B1DE1A0077A0BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883B854C17B1DE1A0077A0BE /* QuartzCore.framework */; };
 		88FA48BE17B01D8D008D3944 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FA48BD17B01D8D008D3944 /* UIKit.framework */; };
 		88FA48C017B01D8D008D3944 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FA48BF17B01D8D008D3944 /* Foundation.framework */; };
 		88FA48C217B01D8D008D3944 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FA48C117B01D8D008D3944 /* CoreGraphics.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		883B854C17B1DE1A0077A0BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88FA48BA17B01D8D008D3944 /* ControlTouchLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlTouchLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FA48BD17B01D8D008D3944 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88FA48BF17B01D8D008D3944 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883B854D17B1DE1A0077A0BE /* QuartzCore.framework in Frameworks */,
 				88FA48BE17B01D8D008D3944 /* UIKit.framework in Frameworks */,
 				88FA48C017B01D8D008D3944 /* Foundation.framework in Frameworks */,
 				88FA48C217B01D8D008D3944 /* CoreGraphics.framework in Frameworks */,
@@ -74,6 +77,7 @@
 		88FA48BC17B01D8D008D3944 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				883B854C17B1DE1A0077A0BE /* QuartzCore.framework */,
 				88FA48BD17B01D8D008D3944 /* UIKit.framework */,
 				88FA48BF17B01D8D008D3944 /* Foundation.framework */,
 				88FA48C117B01D8D008D3944 /* CoreGraphics.framework */,
@@ -258,7 +262,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ControlTouchLab/ControlTouchLab-Prefix.pch";
 				INFOPLIST_FILE = "ControlTouchLab/ControlTouchLab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -269,7 +275,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ControlTouchLab/ControlTouchLab-Prefix.pch";
 				INFOPLIST_FILE = "ControlTouchLab/ControlTouchLab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -293,6 +301,7 @@
 				88FA48D917B01D8D008D3944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
