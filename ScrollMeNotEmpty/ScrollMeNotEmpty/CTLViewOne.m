@@ -41,9 +41,9 @@
     CGContextSaveGState(myContext);
     UIBezierPath *bezierPath = [UIBezierPath
                                 bezierPathWithRoundedRect:CGRectMake(self.bounds.origin.x + self.bounds.size.width/8,
-                                                                     self.bounds.size.height/6,
+                                                                     self.bounds.size.height/10,
                                                                      self.bounds.size.width - self.bounds.size.width/4,
-                                                                     self.bounds.size.height/1.5)
+                                                                     self.bounds.size.height/1.8)
                                                         cornerRadius:20.0];
     
     CGContextSetFillColorWithColor(myContext, [UIColor orangeColor].CGColor);

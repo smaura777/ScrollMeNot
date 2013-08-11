@@ -7,6 +7,7 @@
 //
 
 #import "AntChildVC.h"
+#import "CTLViewOne.h"
 
 
 
@@ -40,12 +41,17 @@
     
     // Do any additional setup after loading the view.
     
-    UIImage *bgImage = [UIImage imageNamed:@"Ant.jpg"];
-    UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-    //[bgView setFrame:self.view.bounds];
-    [self.view addSubview:bgView];
-   
-    [self.view setBackgroundColor:[UIColor greenColor]];
+//    UIImage *bgImage = [UIImage imageNamed:@"Ant.jpg"];
+//    UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
+//    [self.view addSubview:bgView];
+//    [self.view setBackgroundColor:[UIColor greenColor]];
+//    
+    
+   CTLViewOne *viewOne = [[CTLViewOne alloc] initWithFrame:self.view.bounds andString:@"Main"];
+   viewOne.backgroundColor = [UIColor lightGrayColor];
+   [self.view addSubview:viewOne];
+    
+    
     
     _ham = [[UIBarButtonItem alloc]
             initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
