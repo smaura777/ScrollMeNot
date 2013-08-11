@@ -11,7 +11,7 @@
 
 
 
-@interface AntChildVC ()
+@interface AntChildVC () <UIScrollViewDelegate>
 
 @end
 
@@ -37,9 +37,9 @@
 {
     [super viewDidLoad];
 	
-    //  [self.view setFrame:self.parentFrame];
+//  [self.view setFrame:self.parentFrame];
     
-    // Do any additional setup after loading the view.
+//    Do any additional setup after loading the view.
     
 //    UIImage *bgImage = [UIImage imageNamed:@"Ant.jpg"];
 //    UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
@@ -47,9 +47,39 @@
 //    [self.view setBackgroundColor:[UIColor greenColor]];
 //    
     
-   CTLViewOne *viewOne = [[CTLViewOne alloc] initWithFrame:self.view.bounds andString:@"Main"];
-   viewOne.backgroundColor = [UIColor lightGrayColor];
-   [self.view addSubview:viewOne];
+    UIScrollView *ant = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [ant setContentSize:CGSizeMake(self.view.bounds.size.width * 3 , ant.bounds.size.height)];
+    // [ant setContentInset:UIEdgeInsetsMake(64.0,0.0,44.0,0.0)];
+    
+    ant.pagingEnabled = YES;
+    ant.showsVerticalScrollIndicator = NO;
+    
+    
+    UIView *layer1 = [[UIView alloc] initWithFrame:CGRectMake(ant.bounds.origin.x,
+                                                              ant.bounds.origin.y,
+                                                              ant.bounds.size.width * 3 ,
+                                                              ant.bounds.size.height)];
+   
+    
+    [layer1 setBackgroundColor:[UIColor purpleColor]];
+    
+    [ant addSubview:layer1];
+    
+    CTLViewOne *viewOne = [[CTLViewOne alloc] initWithFrame:CGRectMake(10, 10, 300, 380) andString:@"Main"];
+    CTLViewOne *viewTwo = [[CTLViewOne alloc] initWithFrame:CGRectMake(viewOne.frame.origin.x + 320, 10, 300, 380) andString:@"SAM"];
+    CTLViewOne *viewThree = [[CTLViewOne alloc] initWithFrame:CGRectMake(viewTwo.frame.origin.x + 320 , 10, 300, 380) andString:@"MAURA"];
+    
+    
+    viewOne.backgroundColor = [UIColor lightGrayColor];
+    viewTwo.backgroundColor = [UIColor lightGrayColor];
+    viewThree.backgroundColor = [UIColor lightGrayColor];
+   
+    [layer1 addSubview:viewOne];
+    [layer1 addSubview:viewTwo];
+    [layer1 addSubview:viewThree];
+    
+    
+    [self.view addSubview:ant];
     
     
     
