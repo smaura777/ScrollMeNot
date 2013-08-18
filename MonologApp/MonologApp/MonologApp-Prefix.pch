@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'ScrollMeNotEmpty' target in the 'ScrollMeNotEmpty' project
+// Prefix header for all source files of the 'MonologApp' target in the 'MonologApp' project
 //
 
 #import <Availability.h>
@@ -11,6 +11,4 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    
-
 #endif

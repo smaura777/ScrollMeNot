@@ -35,21 +35,21 @@
 }
 
 
-
-- (void)loadView
-{
-    //_menuList = [NSArray arrayWithObjects:[NSString stringWithString:@"Ants"],[NSString stringWithString:@"Bees"] ,nil];
-    
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] style:UITableViewStyleGrouped];
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [tableView reloadData];
-    
-    self.view = tableView;
-    //self.view.backgroundColor = [UIColor blackColor];
-    
-}
+//
+//- (void)loadView
+//{
+//     
+//    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] style:UITableViewStyleGrouped];
+//    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+//    tableView.delegate = self;
+//    tableView.dataSource = self;
+//    [tableView reloadData];
+//    
+//    self.view = tableView;
+//    
+//   
+//    
+//}
 
 
 - (void)viewDidLoad
@@ -64,8 +64,8 @@
    
     _menuList = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObject:_acvc forKey:@"Ants"], [NSDictionary dictionaryWithObject:_bcvc forKey:@"Bee"],nil];
 
-    UITableView *mv = (UITableView *) self.view;
-    [mv reloadData];
+    //  UITableView *mv = (UITableView *) self.view;
+    //[mv reloadData];
     
     
     
@@ -132,8 +132,11 @@
     static NSString *MyIdentifier = @"MyReuseIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
+    
     if (cell == nil) {
         cell = [ [UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
+       
+        
     }
     
     NSLog(@"menu %@",[_menuList objectAtIndex:indexPath.row]);

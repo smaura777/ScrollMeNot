@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #define VC_FULL_SCREEN 1
 #define VC_PARTIAL_SCREEN 2
+#import "macrosUtils.h"
 
 
 @protocol SlidingVCDelegate;

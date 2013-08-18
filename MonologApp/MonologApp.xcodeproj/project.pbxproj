@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88E241D817BB17DF00F285B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241D717BB17DF00F285B6 /* UIKit.framework */; };
+		88E241DA17BB17DF00F285B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241D917BB17DF00F285B6 /* Foundation.framework */; };
+		88E241DC17BB17DF00F285B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241DB17BB17DF00F285B6 /* CoreGraphics.framework */; };
+		88E241E217BB17DF00F285B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88E241E017BB17DF00F285B6 /* InfoPlist.strings */; };
+		88E241E417BB17DF00F285B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E241E317BB17DF00F285B6 /* main.m */; };
+		88E241E817BB17DF00F285B6 /* MLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E241E717BB17DF00F285B6 /* MLAppDelegate.m */; };
+		88E241EA17BB17DF00F285B6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 88E241E917BB17DF00F285B6 /* Default.png */; };
+		88E241EC17BB17DF00F285B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88E241EB17BB17DF00F285B6 /* Default@2x.png */; };
+		88E241EE17BB17DF00F285B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88E241ED17BB17DF00F285B6 /* Default-568h@2x.png */; };
+		88E241F617BB17DF00F285B6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241F517BB17DF00F285B6 /* SenTestingKit.framework */; };
+		88E241F717BB17DF00F285B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241D717BB17DF00F285B6 /* UIKit.framework */; };
+		88E241F817BB17DF00F285B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E241D917BB17DF00F285B6 /* Foundation.framework */; };
+		88E2420017BB17DF00F285B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88E241FE17BB17DF00F285B6 /* InfoPlist.strings */; };
+		88E2420317BB17DF00F285B6 /* MonologAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2420217BB17DF00F285B6 /* MonologAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88E241F917BB17DF00F285B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88E241CC17BB17DF00F285B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E241D317BB17DF00F285B6;
+			remoteInfo = MonologApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		88E241D417BB17DF00F285B6 /* MonologApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonologApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E241D717BB17DF00F285B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88E241D917BB17DF00F285B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88E241DB17BB17DF00F285B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88E241DF17BB17DF00F285B6 /* MonologApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MonologApp-Info.plist"; sourceTree = "<group>"; };
+		88E241E117BB17DF00F285B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88E241E317BB17DF00F285B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88E241E517BB17DF00F285B6 /* MonologApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonologApp-Prefix.pch"; sourceTree = "<group>"; };
+		88E241E617BB17DF00F285B6 /* MLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLAppDelegate.h; sourceTree = "<group>"; };
+		88E241E717BB17DF00F285B6 /* MLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLAppDelegate.m; sourceTree = "<group>"; };
+		88E241E917BB17DF00F285B6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		88E241EB17BB17DF00F285B6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		88E241ED17BB17DF00F285B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		88E241F417BB17DF00F285B6 /* MonologAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonologAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E241F517BB17DF00F285B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		88E241FD17BB17DF00F285B6 /* MonologAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MonologAppTests-Info.plist"; sourceTree = "<group>"; };
+		88E241FF17BB17DF00F285B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88E2420117BB17DF00F285B6 /* MonologAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonologAppTests.h; sourceTree = "<group>"; };
+		88E2420217BB17DF00F285B6 /* MonologAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonologAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88E241D117BB17DF00F285B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E241D817BB17DF00F285B6 /* UIKit.framework in Frameworks */,
+				88E241DA17BB17DF00F285B6 /* Foundation.framework in Frameworks */,
+				88E241DC17BB17DF00F285B6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E241F017BB17DF00F285B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E241F617BB17DF00F285B6 /* SenTestingKit.framework in Frameworks */,
+				88E241F717BB17DF00F285B6 /* UIKit.framework in Frameworks */,
+				88E241F817BB17DF00F285B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88E241CB17BB17DF00F285B6 = {
+			isa = PBXGroup;
+			children = (
+				88E241DD17BB17DF00F285B6 /* MonologApp */,
+				88E241FB17BB17DF00F285B6 /* MonologAppTests */,
+				88E241D617BB17DF00F285B6 /* Frameworks */,
+				88E241D517BB17DF00F285B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88E241D517BB17DF00F285B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88E241D417BB17DF00F285B6 /* MonologApp.app */,
+				88E241F417BB17DF00F285B6 /* MonologAppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88E241D617BB17DF00F285B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88E241D717BB17DF00F285B6 /* UIKit.framework */,
+				88E241D917BB17DF00F285B6 /* Foundation.framework */,
+				88E241DB17BB17DF00F285B6 /* CoreGraphics.framework */,
+				88E241F517BB17DF00F285B6 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88E241DD17BB17DF00F285B6 /* MonologApp */ = {
+			isa = PBXGroup;
+			children = (
+				88E241E617BB17DF00F285B6 /* MLAppDelegate.h */,
+				88E241E717BB17DF00F285B6 /* MLAppDelegate.m */,
+				88E241DE17BB17DF00F285B6 /* Supporting Files */,
+			);
+			path = MonologApp;
+			sourceTree = "<group>";
+		};
+		88E241DE17BB17DF00F285B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88E241DF17BB17DF00F285B6 /* MonologApp-Info.plist */,
+				88E241E017BB17DF00F285B6 /* InfoPlist.strings */,
+				88E241E317BB17DF00F285B6 /* main.m */,
+				88E241E517BB17DF00F285B6 /* MonologApp-Prefix.pch */,
+				88E241E917BB17DF00F285B6 /* Default.png */,
+				88E241EB17BB17DF00F285B6 /* Default@2x.png */,
+				88E241ED17BB17DF00F285B6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88E241FB17BB17DF00F285B6 /* MonologAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				88E2420117BB17DF00F285B6 /* MonologAppTests.h */,
+				88E2420217BB17DF00F285B6 /* MonologAppTests.m */,
+				88E241FC17BB17DF00F285B6 /* Supporting Files */,
+			);
+			path = MonologAppTests;
+			sourceTree = "<group>";
+		};
+		88E241FC17BB17DF00F285B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88E241FD17BB17DF00F285B6 /* MonologAppTests-Info.plist */,
+				88E241FE17BB17DF00F285B6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88E241D317BB17DF00F285B6 /* MonologApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88E2420617BB17DF00F285B6 /* Build configuration list for PBXNativeTarget "MonologApp" */;
+			buildPhases = (
+				88E241D017BB17DF00F285B6 /* Sources */,
+				88E241D117BB17DF00F285B6 /* Frameworks */,
+				88E241D217BB17DF00F285B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonologApp;
+			productName = MonologApp;
+			productReference = 88E241D417BB17DF00F285B6 /* MonologApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88E241F317BB17DF00F285B6 /* MonologAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88E2420917BB17DF00F285B6 /* Build configuration list for PBXNativeTarget "MonologAppTests" */;
+			buildPhases = (
+				88E241EF17BB17DF00F285B6 /* Sources */,
+				88E241F017BB17DF00F285B6 /* Frameworks */,
+				88E241F117BB17DF00F285B6 /* Resources */,
+				88E241F217BB17DF00F285B6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88E241FA17BB17DF00F285B6 /* PBXTargetDependency */,
+			);
+			name = MonologAppTests;
+			productName = MonologAppTests;
+			productReference = 88E241F417BB17DF00F285B6 /* MonologAppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88E241CC17BB17DF00F285B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ML;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Self;
+			};
+			buildConfigurationList = 88E241CF17BB17DF00F285B6 /* Build configuration list for PBXProject "MonologApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88E241CB17BB17DF00F285B6;
+			productRefGroup = 88E241D517BB17DF00F285B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88E241D317BB17DF00F285B6 /* MonologApp */,
+				88E241F317BB17DF00F285B6 /* MonologAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88E241D217BB17DF00F285B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E241E217BB17DF00F285B6 /* InfoPlist.strings in Resources */,
+				88E241EA17BB17DF00F285B6 /* Default.png in Resources */,
+				88E241EC17BB17DF00F285B6 /* Default@2x.png in Resources */,
+				88E241EE17BB17DF00F285B6 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E241F117BB17DF00F285B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E2420017BB17DF00F285B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88E241F217BB17DF00F285B6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88E241D017BB17DF00F285B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E241E417BB17DF00F285B6 /* main.m in Sources */,
+				88E241E817BB17DF00F285B6 /* MLAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E241EF17BB17DF00F285B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E2420317BB17DF00F285B6 /* MonologAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88E241FA17BB17DF00F285B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88E241D317BB17DF00F285B6 /* MonologApp */;
+			targetProxy = 88E241F917BB17DF00F285B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88E241E017BB17DF00F285B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E241E117BB17DF00F285B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		88E241FE17BB17DF00F285B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E241FF17BB17DF00F285B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88E2420417BB17DF00F285B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88E2420517BB17DF00F285B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88E2420717BB17DF00F285B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonologApp/MonologApp-Prefix.pch";
+				INFOPLIST_FILE = "MonologApp/MonologApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88E2420817BB17DF00F285B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonologApp/MonologApp-Prefix.pch";
+				INFOPLIST_FILE = "MonologApp/MonologApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		88E2420A17BB17DF00F285B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MonologApp.app/MonologApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonologApp/MonologApp-Prefix.pch";
+				INFOPLIST_FILE = "MonologAppTests/MonologAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		88E2420B17BB17DF00F285B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MonologApp.app/MonologApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonologApp/MonologApp-Prefix.pch";
+				INFOPLIST_FILE = "MonologAppTests/MonologAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88E241CF17BB17DF00F285B6 /* Build configuration list for PBXProject "MonologApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88E2420417BB17DF00F285B6 /* Debug */,
+				88E2420517BB17DF00F285B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88E2420617BB17DF00F285B6 /* Build configuration list for PBXNativeTarget "MonologApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88E2420717BB17DF00F285B6 /* Debug */,
+				88E2420817BB17DF00F285B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		88E2420917BB17DF00F285B6 /* Build configuration list for PBXNativeTarget "MonologAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88E2420A17BB17DF00F285B6 /* Debug */,
+				88E2420B17BB17DF00F285B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88E241CC17BB17DF00F285B6 /* Project object */;
+}
